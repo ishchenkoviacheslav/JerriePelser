@@ -1,10 +1,16 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-
-namespace JerriePelser.Models
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+//ManageViewModels
+namespace IdentitySample.Models
 {
+    public class GoogleAuthenticatorViewModel
+    {
+        public string SecretKey { get; set; }
+        public string BarcodeUrl { get; set; }
+        public string Code { get; set; }
+    }
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }
@@ -12,6 +18,7 @@ namespace JerriePelser.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public bool IsGoogleAuthenticatorEnabled { get; set; }///
     }
 
     public class ManageLoginsViewModel
@@ -58,6 +65,7 @@ namespace JerriePelser.Models
         public string ConfirmPassword { get; set; }
     }
 
+
     public class AddPhoneNumberViewModel
     {
         [Required]
@@ -83,4 +91,5 @@ namespace JerriePelser.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
 }
